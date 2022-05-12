@@ -126,6 +126,8 @@ int main(int argc, char *argv[]) {
             "set the lower length for input reads filter (default: 150)", 1},
             {"upper_len", {"--upper-length"},
             "set the upper length for input reads filter (default: 100,000)", 1},
+            {"iso_freq", {"--iso-freq"},
+            "use this mode to cluster iso forms by length.", 1},
         }};
 
         argagg::parser_results args;
@@ -205,7 +207,7 @@ int main(int argc, char *argv[]) {
 
         std::cerr << "Gene clustering done" << std::endl;
         std::cerr << gene_clusters.size() << " gene clusters found" << std::endl;
-        if (!args["iso"]) {
+        if (!args["iso"] && !args["iso_freq"]) {
             hps::to_stream(gene_clusters, out_file);
             out_file.close();
             return EXIT_SUCCESS;
@@ -213,40 +215,134 @@ int main(int argc, char *argv[]) {
 
         // clustering at isoform level
         cluster_set_t iso_clusters;
-        int i = 0;
-        for (auto &c : gene_clusters) {
-            // sort gene cluster seqs by size
-            std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
-                return a.seq_id > b.seq_id;
-            });
 
-            std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
-                return reads[a.seq_id].seq.size() > reads[b.seq_id].seq.size();
-            });
+        if (args["iso"]) {
+            int i = 0;
+            for (auto &c : gene_clusters) {
+                // sort gene cluster seqs by size
+                std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
+                    return a.seq_id > b.seq_id;
+                });
 
-            // generate new read set with gene cluster reads
-            read_set_t gene_reads;
-            for (auto &cs : c.seqs) {
-                gene_reads.push_back(reads[cs.seq_id]);
-            }
+                std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
+                    return reads[a.seq_id].seq.size() > reads[b.seq_id].seq.size();
+                });
 
-            // cluster gene reads & save new iso clusters
-            auto iso_clusters_tmp = cluster_reads(gene_reads, iso_kmer_size, iso_t_s, iso_t_v, bv_threshold, bv_min_threshold, bv_falloff, min_reads_cluster, false, repr_percentile, is_rna, false, n_threads);
-            for (auto &ic : iso_clusters_tmp) {
-                cluster_t iso_cluster;
-                iso_cluster.main_seq = cseq_t{c.seqs[ic.main_seq.seq_id].seq_id, ic.main_seq.rev};
-
-                for (auto &ics : ic.seqs) {
-                    iso_cluster.seqs.push_back(cseq_t{c.seqs[ics.seq_id].seq_id, ics.rev});
+                // generate new read set with gene cluster reads
+                read_set_t gene_reads;
+                for (auto &cs : c.seqs) {
+                    gene_reads.push_back(reads[cs.seq_id]);
                 }
 
-                iso_clusters.push_back(iso_cluster);
+                // cluster gene reads & save new iso clusters
+                auto iso_clusters_tmp = cluster_reads(gene_reads, iso_kmer_size, iso_t_s, iso_t_v, bv_threshold, bv_min_threshold, bv_falloff, min_reads_cluster, false, repr_percentile, is_rna, false, n_threads);
+                for (auto &ic : iso_clusters_tmp) {
+                    cluster_t iso_cluster;
+                    iso_cluster.main_seq = cseq_t{c.seqs[ic.main_seq.seq_id].seq_id, ic.main_seq.rev};
+
+                    for (auto &ics : ic.seqs) {
+                        iso_cluster.seqs.push_back(cseq_t{c.seqs[ics.seq_id].seq_id, ics.rev});
+                    }
+
+                    iso_clusters.push_back(iso_cluster);
+                }
+
+                ++i;
+                if (verbose) print_progress(i, gene_clusters.size());
+            }
+        } else if (args["iso_freq"]) {
+
+            int distributionThreshold = args["iso_freq"].as<int>(100);
+
+            int i = 0;
+            for (auto &c : gene_clusters) {
+                // sort gene cluster seqs by size
+                std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
+                    return a.seq_id > b.seq_id;
+                });
+
+                std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
+                    return reads[a.seq_id].seq.size() > reads[b.seq_id].seq.size();
+                });
+
+                // generate new read set with gene cluster reads
+                read_set_t gene_reads;
+                for (auto &cs : c.seqs) {
+                    gene_reads.push_back(reads[cs.seq_id]);
+                }
+
+                std::vector<int> no_of_reads_in_threshold;
+
+                no_of_reads_in_threshold.reserve(gene_reads.size());
+                
+                for (int i=0; i<gene_reads.size(); i++) {
+                    int length_of_read = gene_reads[i].seq.size();
+
+                    for (int j = i + 1; j < gene_reads.size(); j++) {
+                        if (gene_reads[j].seq.size() <= length_of_read - distributionThreshold) {
+                            no_of_reads_in_threshold.push_back(j-i);
+                            break;
+                        } else if (j == gene_reads.size() - 1) {
+                            no_of_reads_in_threshold.push_back(j-i);
+                            break;
+                        }
+                    }
+
+
+                }
+
+                auto max_element_index = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end()) - no_of_reads_in_threshold.begin();
+                auto max_element = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end());
+                
+                int stopThreshold =  no_of_reads_in_threshold.size() * 0.1;
+                int readsUnClustered = no_of_reads_in_threshold.size();
+
+                if (*max_element == 1) {
+                    iso_clusters.push_back(c);
+                    readsUnClustered = stopThreshold;
+                }
+
+                while (readsUnClustered > stopThreshold) {
+                    cluster_t iso_cluster;
+
+                    iso_cluster.main_seq = cseq_t{c.seqs[max_element_index].seq_id, c.seqs[max_element_index].rev};
+
+                    for (int i = max_element_index; i < max_element_index + *max_element; i++) {
+                        iso_cluster.seqs.push_back(cseq_t{c.seqs[i].seq_id, c.seqs[i].rev});
+                    }
+
+                    iso_clusters.push_back(iso_cluster);
+
+                    // update counters
+                    
+                    readsUnClustered -= *max_element;
+
+                    // Fix the no_of_reads_in_threshold
+
+                    for (int i = max_element_index + *max_element; i > 0; i--) {
+                        if (i >= max_element_index) {
+                            no_of_reads_in_threshold[i] = 0;
+                        } else if (no_of_reads_in_threshold[i] + i > max_element_index) {
+                            no_of_reads_in_threshold[i] = max_element_index - i;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    max_element_index = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end()) - no_of_reads_in_threshold.begin();
+                    max_element = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end());
+
+                    if (*max_element == 1) {
+                        break;
+                    }
+
+                }
+
+                ++i;
             }
 
-            ++i;
-            if (verbose) print_progress(i, gene_clusters.size());
-        }
 
+        }
         // std::cerr << "Isoform clustering done" << std::endl;
         // std::cerr << iso_clusters.size() << " isoform clusters found" << std::endl;
         hps::to_stream(iso_clusters, out_file);
