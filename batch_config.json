@@ -1,0 +1,52 @@
+{
+    "output" : "output/",
+    "runs" : [
+        {
+            "name" : "1_bv",
+            "datasets" : ["samples/sample1/50.fasta", "samples/sample1/25.fasta"],
+            "labels" : ["S1", "S2"],
+            "commandLineParams" : ["--iso-bitvec"]
+        },
+        {
+            "name" : "1_freq",
+            "datasets" : ["samples/sample1/50.fasta", "samples/sample1/25.fasta"],
+            "labels" : ["S1", "S2"],
+            "commandLineParams" : ["--iso-freq 100"]
+        },
+        {
+            "name" : "2_bv",
+            "datasets" : ["samples/sample1/100.fasta", "samples/sample1/125.fasta"],
+            "labels" : ["S1", "S2"],
+            "commandLineParams" : ["--iso-bitvec"]
+        },
+        {
+            "name" : "2_freq",
+            "datasets" : ["samples/sample1/100.fasta", "samples/sample1/125.fasta"],
+            "labels" : ["S1", "S2"],
+            "commandLineParams" : ["--iso-freq 100"]
+        },
+        {
+            "name" : "3_bv",
+            "datasets" : ["samples/sample2/50.fasta", "samples/sample2/75.fasta"],
+            "labels" : ["S1", "S2"],
+            "commandLineParams" : ["--iso-bitvec"]
+        },
+        {
+            "name" : "3_freq",
+            "datasets" : ["samples/sample2/50.fasta", "samples/sample2/75.fasta"],
+            "labels" : ["S1", "S2"],
+            "commandLineParams" : ["--iso-freq 100"]
+        },{
+            "name" : "4_bv",
+            "datasets" : ["samples/sample3/75.fasta", "samples/sample3/100.fasta", "samples/sample3/125.fasta"],
+            "labels" : ["S1", "S2", "S3"],
+            "commandLineParams" : ["--iso-bitvec"]
+        },
+        {
+            "name" : "4_freq",
+            "datasets" : ["samples/sample3/75.fasta", "samples/sample3/100.fasta", "samples/sample3/125.fasta"],
+            "labels" : ["S1", "S2", "S3"],
+            "commandLineParams" : ["--iso-freq 100"]
+        }
+    ]
+}

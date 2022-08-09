@@ -5,9 +5,9 @@ LIBS=-Ispoa/include
 
 all: $(EXEC)
 
-$(EXEC): main.cpp fasta.o cluster.o utils.o kmer.o similarity.o correct.o
-	$(CC) -o $(EXEC) $(CFLAGS) $(LIBS) main.cpp fasta.o -lz cluster.o utils.o kmer.o similarity.o correct.o spoa/build/lib/libspoa.a
-	
+$(EXEC): main.cpp fasta.o cluster.o utils.o kmer.o similarity.o correct.o 
+	$(CC) -o $(EXEC) $(CFLAGS) $(LIBS) main.cpp fasta.o -lz cluster.o utils.o kmer.o similarity.o correct.o spoa/build/lib/libspoa.a SimpleDBSCAN/CMakeFiles/dbscan_example.dir/kdtree.cpp.o
+
 utils.o: utils.hpp utils.cpp
 	$(CC) -c $(CFLAGS) utils.cpp
 

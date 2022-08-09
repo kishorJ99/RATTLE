@@ -373,7 +373,7 @@ void write_fastq_file(const read_set_t &reads, std::string file) {
     f.open(file);
 
     for (auto &r: reads) {
-        f << r.header << std::endl << r.seq << std::endl << r.ann << std::endl << r.quality << std::endl;
+        f << "@" + r.header << std::endl << r.seq << std::endl << r.ann << std::endl << r.quality << std::endl;
     }
 
     f.close();

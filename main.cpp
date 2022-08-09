@@ -3,8 +3,11 @@
 #include "utils.hpp"
 #include "correct.hpp"
 #include "argagg.hpp"
+#include "kmer.hpp"
 #include "hps/src/hps.h"
 #include "spoa/spoa.hpp"
+// #include "DBSCAN/clustering.cpp"
+#include "SimpleDBSCAN/dbscan.h"
 
 #include <iostream>
 #include <future>
@@ -73,6 +76,17 @@ std::vector<std::string> splitString(std::string str, char delimiter) {
     return internal;
 }
 
+struct vec1f {
+    float data[1];
+    float operator[](int idx) const { return data[idx]; }
+};
+
+struct vec4096f {
+    float data[4096];
+    float operator[](int idx) const { return data[idx]; }
+};
+
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         std::cout << "Run with mode: ./rattle <cluster|cluster_summary|extract_clusters|correct|polish>" << std::endl;
@@ -128,6 +142,8 @@ int main(int argc, char *argv[]) {
             "set the upper length for input reads filter (default: 100,000)", 1},
             {"iso_freq", {"--iso-freq"},
             "use this mode to cluster iso forms by length.", 1},
+            {"iso_bv", {"--iso-bitvec"},
+            "use this mode to cluster iso forms by bit vectors.", 0},
         }};
 
         argagg::parser_results args;
@@ -207,7 +223,7 @@ int main(int argc, char *argv[]) {
 
         std::cerr << "Gene clustering done" << std::endl;
         std::cerr << gene_clusters.size() << " gene clusters found" << std::endl;
-        if (!args["iso"] && !args["iso_freq"]) {
+        if (!args["iso"] && !args["iso_freq"] && !args["iso_bv"]) {
             hps::to_stream(gene_clusters, out_file);
             out_file.close();
             return EXIT_SUCCESS;
@@ -256,95 +272,118 @@ int main(int argc, char *argv[]) {
 
             int i = 0;
             for (auto &c : gene_clusters) {
-                // sort gene cluster seqs by size
-                std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
-                    return a.seq_id > b.seq_id;
-                });
 
-                std::stable_sort(c.seqs.begin(), c.seqs.end(), [&reads](cseq_t a, cseq_t b) {
-                    return reads[a.seq_id].seq.size() > reads[b.seq_id].seq.size();
-                });
+                // create point vector
+                std::vector<vec1f> points;
 
-                // generate new read set with gene cluster reads
-                read_set_t gene_reads;
                 for (auto &cs : c.seqs) {
-                    gene_reads.push_back(reads[cs.seq_id]);
+                    points.push_back(vec1f{(float) reads[cs.seq_id].seq.size()});
                 }
 
-                std::vector<int> no_of_reads_in_threshold;
+                auto dbscan = DBSCAN<vec1f, float>();
 
-                no_of_reads_in_threshold.reserve(gene_reads.size());
+                dbscan.Run(&points, 1, 0.2f, 5);
+
+                auto noise = dbscan.Noise;
+                auto clusters = dbscan.Clusters;
                 
-                for (int i=0; i<gene_reads.size(); i++) {
-                    int length_of_read = gene_reads[i].seq.size();
+                // convert clusters to iso clusters
 
-                    for (int j = i + 1; j < gene_reads.size(); j++) {
-                        if (gene_reads[j].seq.size() <= length_of_read - distributionThreshold) {
-                            no_of_reads_in_threshold.push_back(j-i);
-                            break;
-                        } else if (j == gene_reads.size() - 1) {
-                            no_of_reads_in_threshold.push_back(j-i);
-                            break;
-                        }
-                    }
-
-
-                }
-
-                auto max_element_index = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end()) - no_of_reads_in_threshold.begin();
-                auto max_element = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end());
-                
-                int stopThreshold =  no_of_reads_in_threshold.size() * 0.1;
-                int readsUnClustered = no_of_reads_in_threshold.size();
-
-                if (*max_element == 1) {
-                    iso_clusters.push_back(c);
-                    readsUnClustered = stopThreshold;
-                }
-
-                while (readsUnClustered > stopThreshold) {
+                for (auto &cluster : clusters) {
                     cluster_t iso_cluster;
 
-                    iso_cluster.main_seq = cseq_t{c.seqs[max_element_index].seq_id, c.seqs[max_element_index].rev};
+                    iso_cluster.main_seq = cseq_t{c.seqs[cluster[0]].seq_id, c.seqs[cluster[0]].rev};
 
-                    for (int i = max_element_index; i < max_element_index + *max_element; i++) {
-                        iso_cluster.seqs.push_back(cseq_t{c.seqs[i].seq_id, c.seqs[i].rev});
+                    for (auto &cs : cluster) {
+                        iso_cluster.seqs.push_back(cseq_t{c.seqs[cs].seq_id, c.seqs[cs].rev});
                     }
 
                     iso_clusters.push_back(iso_cluster);
-
-                    // update counters
-                    
-                    readsUnClustered -= *max_element;
-
-                    // Fix the no_of_reads_in_threshold
-
-                    for (int i = max_element_index + *max_element; i > 0; i--) {
-                        if (i >= max_element_index) {
-                            no_of_reads_in_threshold[i] = 0;
-                        } else if (no_of_reads_in_threshold[i] + i > max_element_index) {
-                            no_of_reads_in_threshold[i] = max_element_index - i;
-                        } else {
-                            break;
-                        }
-                    }
-
-                    max_element_index = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end()) - no_of_reads_in_threshold.begin();
-                    max_element = std::max_element(no_of_reads_in_threshold.begin(), no_of_reads_in_threshold.end());
-
-                    if (*max_element == 1) {
-                        break;
-                    }
-
                 }
-
                 ++i;
             }
+        } else if (args["iso_bv"]) {
+            std::cerr << "Mode Bitvec" << std::endl;
+            // extract kmers from reads
+            std::vector<std::vector<kmer_t>> kmers(reads.size());
+            std::vector<std::vector<kmer_t>> rev_kmers(reads.size());
 
+            std::vector<kmer_bv_t> bv_kmers(reads.size());
+            std::vector<kmer_bv_t> rev_bv_kmers(reads.size());
+            
+            std::vector<std::future<void>> tasks;
+            for (int t = 0; t < n_threads; ++t) {
+                tasks.emplace_back(std::async(std::launch::async, [t, &reads, n_threads, kmer_size, &kmers, &rev_kmers, &bv_kmers, &rev_bv_kmers, is_rna] {
+                    for (int i = t; i < reads.size(); i+=n_threads) {
+                        read_kmers_t k1 = extract_kmers_from_read(reads[i].seq, kmer_size, !is_rna);
 
+                        kmers[i] = k1.list_forward;
+                        rev_kmers[i] = k1.list_reverse;
+                        bv_kmers[i] = k1.bv_forward;
+                        rev_bv_kmers[i] = k1.bv_reverse;
+                    }
+                }));
+            }
+
+            for (auto &&task : tasks) {
+                task.get();
+            }
+
+            int i=0;
+            for (auto &c : gene_clusters) {
+
+                // create point vector
+                std::vector<vec4096f> points;
+
+                // bv outputfile
+                std::ofstream file;
+                file.open ("example_" + std::to_string(i) + ".csv");
+
+                for (auto &cs : c.seqs) {
+                    vec4096f vect;
+                    std::string fileLine = "";
+                    auto bv = bv_kmers[cs.seq_id];
+
+                    for (int i = 0; i < 4096; ++i) {
+                        vect.data[i] = (float) bv[i];
+                        fileLine += std::to_string(bv[i]) + ",";
+                    }
+                    fileLine += "\n";
+
+                    file << fileLine;
+                    points.push_back(vect);
+                }
+
+                file.close();
+
+                auto dbscan = DBSCAN<vec4096f, float>();
+
+                dbscan.Run(&points, 4096, 1.0f, 5);
+
+                auto noise = dbscan.Noise;
+                auto clusters = dbscan.Clusters;
+                
+                std::cerr << clusters.size() << std::endl;
+
+                // convert clusters to iso clusters
+                int j = 0;
+                for (auto &cluster : clusters) {
+                    cluster_t iso_cluster;
+
+                    iso_cluster.main_seq = cseq_t{c.seqs[cluster[0]].seq_id, c.seqs[cluster[0]].rev};
+
+                    for (auto &cs : cluster) {
+                        iso_cluster.seqs.push_back(cseq_t{c.seqs[cs].seq_id, c.seqs[cs].rev});
+                    }
+
+                    iso_clusters.push_back(iso_cluster);
+                }
+                ++j;
+                ++i;
+            }
         }
-        // std::cerr << "Isoform clustering done" << std::endl;
-        // std::cerr << iso_clusters.size() << " isoform clusters found" << std::endl;
+        std::cerr << "Isoform clustering done" << std::endl;
+        std::cerr << iso_clusters.size() << " isoform clusters found" << std::endl;
         hps::to_stream(iso_clusters, out_file);
         out_file.close();
         return EXIT_SUCCESS;
