@@ -45,6 +45,7 @@ def generateGraphs(location, configItem):
             filePlot = sns.displot(lengthList)
             filePlot.set(title = configItem['labels'][i])
             filePlot.figure.savefig(location + configItem['name'] + '/graphs/' + configItem['labels'][i] + '_Length_Histogram.png')
+            plt.close()
 
             allLengthLists += lengthList
             
@@ -53,6 +54,7 @@ def generateGraphs(location, configItem):
     filePlot = sns.displot(allLengthLists)
     filePlot.set(title = 'All Lengths')
     filePlot.figure.savefig(location + configItem['name'] + '/graphs/All_Length_Histogram.png')
+    plt.close()
 
     # Create compositon matrix
     if len(configItem['labels']) != 0:
@@ -72,6 +74,7 @@ def generateGraphs(location, configItem):
         plt.ylabel('Input Sources')
         plt.title('Cluster Compositon')
         compositonPlt.figure.savefig(location + configItem['name'] + '/graphs/ClusterCompositionPlot.png')
+        plt.close()
 
 
 

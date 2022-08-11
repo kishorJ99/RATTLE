@@ -6,7 +6,6 @@ python*
 *.o
 *.sh
 !build.sh
-*.py
 .vscode/
 .Rhistory
 results.*
