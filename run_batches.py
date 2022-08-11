@@ -62,12 +62,12 @@ def generateGraphs(location, configItem):
 
         samples = configItem['labels']
 
-        compositonMatrix = [[ 0 for j in range (0, len(samples))] for i in range(0, max(clusterSummary['Cluster']) +1)]
+        compositonMatrix = [[ 0 for j in range (0, len(samples))] for i in range(0, max(clusterSummary['Cluster'], default=0) +1)]
 
         for row in zip(clusterSummary['Read'], clusterSummary['Cluster']):
             addToCompositonMatrix(row[0].split('.')[-1], row[1], compositonMatrix, configItem['labels'])
 
-        compositonMatrixPerCluster = pd.DataFrame(dict([(k, [j[i] for j in compositonMatrix]) for i,k in enumerate(samples)]), index=['Cluster ' + str(i) for i in range(0, max(clusterSummary['Cluster']) +1)])
+        compositonMatrixPerCluster = pd.DataFrame(dict([(k, [j[i] for j in compositonMatrix]) for i,k in enumerate(samples)]), index=['Cluster ' + str(i) for i in range(0, max(clusterSummary['Cluster'], default=0) +1)])
 
         compositonPlt = compositonMatrixPerCluster.plot(kind='bar', stacked=True)
         plt.xlabel('Clusters')
