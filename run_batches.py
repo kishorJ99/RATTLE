@@ -4,10 +4,15 @@ from Bio import SeqIO
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.metrics.cluster import completeness_score
+from sklearn.metrics.cluster import homogeneity_score
+
+from matplotlib import rcParams
+rcParams.update({'figure.autolayout': True})
 # from subprocess import PIPE, run
 
 # Config
-configf = open('batch_config.json')
+configf = open('kmer_batch_config.json')
 config = json.load(configf)
 
 # Output
@@ -44,7 +49,9 @@ def generateGraphs(location, configItem):
 
             filePlot = sns.displot(lengthList)
             filePlot.set(title = configItem['labels'][i])
-            filePlot.figure.savefig(location + configItem['name'] + '/graphs/' + configItem['labels'][i] + '_Length_Histogram.png')
+            plt.subplots_adjust(top=0.85)
+            plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+            filePlot.figure.savefig(location + configItem['name'] + '/graphs/' + configItem['labels'][i] + '_Length_Histogram.png', bbox_inches="tight")
             plt.close()
 
             allLengthLists += lengthList
@@ -53,7 +60,9 @@ def generateGraphs(location, configItem):
 
     filePlot = sns.displot(allLengthLists)
     filePlot.set(title = 'All Lengths')
-    filePlot.figure.savefig(location + configItem['name'] + '/graphs/All_Length_Histogram.png')
+    plt.subplots_adjust(top=0.95)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+    filePlot.figure.savefig(location + configItem['name'] + '/graphs/All_Length_Histogram.png', bbox_inches="tight")
     plt.close()
 
     # Create compositon matrix
@@ -67,31 +76,36 @@ def generateGraphs(location, configItem):
         for row in zip(clusterSummary['Read'], clusterSummary['Cluster']):
             addToCompositonMatrix(row[0].split('.')[-1], row[1], compositonMatrix, configItem['labels'])
 
-        compositonMatrixPerCluster = pd.DataFrame(dict([(k, [j[i] for j in compositonMatrix]) for i,k in enumerate(samples)]), index=['Cluster ' + str(i) for i in range(0, max(clusterSummary['Cluster'], default=0) +1)])
+        compositonMatrixPerSample = pd.DataFrame(dict([(k, [j[i] for j in compositonMatrix]) for i,k in enumerate(samples)]), index=['Cluster ' + str(i) for i in range(0, max(clusterSummary['Cluster'], default=0) +1)])
 
-        compositonPlt = compositonMatrixPerCluster.plot(kind='bar', stacked=True)
+        compositonPlt = compositonMatrixPerSample.plot(kind='bar', stacked=True)
         plt.xlabel('Clusters')
         plt.ylabel('Input Sources')
         plt.title('Cluster Compositon')
-        compositonPlt.figure.savefig(location + configItem['name'] + '/graphs/ClusterCompositionPlot.png')
+        plt.subplots_adjust(top=0.85)
+        plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        compositonPlt.figure.savefig(location + configItem['name'] + '/graphs/ClusterCompositionPlot.png', bbox_inches="tight")
         plt.close()
 
 
+        # Clustering metrics
+        readGroundTruth = [ configItem['labels'].index(i.split('.')[-1]) for i in clusterSummary['Read']]
+        readCluster = clusterSummary['Cluster']
 
-        # print(compositonMatrix)
+        homogeneity = homogeneity_score(readGroundTruth, readCluster)
+        compleateness = completeness_score(readGroundTruth, readCluster)
 
-        # print(compositonMatrix)
-
-        # for i in range(0, max(clusterSummary['Cluster']) +1):
-        #     cluster = []
-        #     for j in range (0, len(samples)):
-        #         cluster.append(0)
-            
-        #     compositonMatrix.append(cluster)
+        with open(location + configItem['name'] + '/graphs/ClusteringScores.txt', 'w') as f:
+            f.write('Homogeneity : ' + str(homogeneity) + ' , Completeness : ' + str(compleateness))
 
 
 # Run Rattle
 for i in config['runs']:
+    
+    if (config['multipleOutputLoc']):
+        outputLocation = config['output'] + i['output']
+        os.makedirs(outputLocation, exist_ok=True)
+
 
     debug = []
 

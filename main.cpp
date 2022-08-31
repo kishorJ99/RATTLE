@@ -141,9 +141,15 @@ int main(int argc, char *argv[]) {
             {"upper_len", {"--upper-length"},
             "set the upper length for input reads filter (default: 100,000)", 1},
             {"iso_freq", {"--iso-freq"},
-            "use this mode to cluster iso forms by length.", 1},
+            "use this mode to cluster iso forms by length.", 0},
             {"iso_bv", {"--iso-bitvec"},
             "use this mode to cluster iso forms by bit vectors.", 0},
+            {"iso_len_bv", {"--iso-len-bv"},
+            "use this mode to cluster iso forms by length then bit vectors.", 0},
+            {"dbscan_min_points", {"--dbscan-mp"},
+            "Use this to pass in DBscan parameters 'min points'", 1},
+            {"dbscan_eps", {"--dbscan-eps"},
+            "Use this to pass in DBscan parameter 'Eps'", 1}
         }};
 
         argagg::parser_results args;
@@ -194,6 +200,9 @@ int main(int argc, char *argv[]) {
         }
 
         bool is_rna = args["rna"];
+
+        int db_scan_mp = args["dbscan_min_points"].as<int>(3);
+        float db_scan_eps = args["dbscan_eps"].as<float>(5);
 
         std::cerr << "RNA mode: " << std::boolalpha << is_rna << std::endl;
 
@@ -282,7 +291,7 @@ int main(int argc, char *argv[]) {
 
                 auto dbscan = DBSCAN<vec1f, float>();
 
-                dbscan.Run(&points, 1, 0.2f, 5);
+                dbscan.Run(&points, 1, 2.0f, 3);
 
                 auto noise = dbscan.Noise;
                 auto clusters = dbscan.Clusters;
@@ -304,6 +313,8 @@ int main(int argc, char *argv[]) {
             }
         } else if (args["iso_bv"]) {
             std::cerr << "Mode Bitvec" << std::endl;
+            std::cerr << "eps : " << db_scan_eps << " mp : " << db_scan_mp << " k : " << iso_kmer_size << std::endl;
+
             // extract kmers from reads
             std::vector<std::vector<kmer_t>> kmers(reads.size());
             std::vector<std::vector<kmer_t>> rev_kmers(reads.size());
@@ -313,9 +324,9 @@ int main(int argc, char *argv[]) {
             
             std::vector<std::future<void>> tasks;
             for (int t = 0; t < n_threads; ++t) {
-                tasks.emplace_back(std::async(std::launch::async, [t, &reads, n_threads, kmer_size, &kmers, &rev_kmers, &bv_kmers, &rev_bv_kmers, is_rna] {
+                tasks.emplace_back(std::async(std::launch::async, [t, &reads, n_threads, iso_kmer_size, &kmers, &rev_kmers, &bv_kmers, &rev_bv_kmers, is_rna] {
                     for (int i = t; i < reads.size(); i+=n_threads) {
-                        read_kmers_t k1 = extract_kmers_from_read(reads[i].seq, kmer_size, !is_rna);
+                        read_kmers_t k1 = extract_kmers_from_read(reads[i].seq, iso_kmer_size, !is_rna);
 
                         kmers[i] = k1.list_forward;
                         rev_kmers[i] = k1.list_reverse;
@@ -358,12 +369,12 @@ int main(int argc, char *argv[]) {
 
                 auto dbscan = DBSCAN<vec4096f, float>();
 
-                dbscan.Run(&points, 4096, 1.0f, 5);
+                dbscan.Run(&points, 4096, db_scan_eps, db_scan_mp);
 
                 auto noise = dbscan.Noise;
                 auto clusters = dbscan.Clusters;
                 
-                std::cerr << clusters.size() << std::endl;
+                // std::cerr << clusters.size() << std::endl;
 
                 // convert clusters to iso clusters
                 int j = 0;
@@ -382,6 +393,7 @@ int main(int argc, char *argv[]) {
                 ++i;
             }
         }
+        
         std::cerr << "Isoform clustering done" << std::endl;
         std::cerr << iso_clusters.size() << " isoform clusters found" << std::endl;
         hps::to_stream(iso_clusters, out_file);

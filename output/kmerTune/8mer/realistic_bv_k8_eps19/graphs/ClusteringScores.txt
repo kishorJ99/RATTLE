@@ -1,0 +1,1 @@
+Homogeneity : 0.8678042395235069 , Completeness : 1.0000000000000002
