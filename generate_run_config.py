@@ -1,16 +1,16 @@
 import json
 
 
-configOutputLoc = "kmer_batch_config.json"
+configOutputLoc = "kmer_tune_realistic_selective_batch_config.json"
 
-iso_kmer_size_start, iso_kmer_size_end = 6, 16
+iso_kmer_size_start, iso_kmer_size_end = 4, 5
 db_scan_mp_start, db_scan_mp_end = 3, 3
 db_scan_eps_start, db_scan_eps_end = 1, 20
 
 jsonFile = {}
 
 jsonFile["multipleOutputLoc"] = True
-jsonFile["output"] = "output/kmerTune/"
+jsonFile["output"] = "output/kmerTune_2/"
 jsonFile["runs"] = []
 
 
@@ -24,7 +24,7 @@ def makeRun(name, output, datasets, labels, commandLineParams):
 
     return run
 
-for kmer_size in [14, 11, 16, 10, 9, 13, 15, 12, 8]:
+for kmer_size in [8, 10, 13, 4, 6, 7, 14, 15, 12, 9, 16, 11, 5]:
     for eps in [12, 8, 15, 2, 17, 4, 1, 0.2, 3, 5, 10, 19, 6, 7, 9, 11, 13, 14, 16, 18]:
         
         # Ideal set
@@ -41,25 +41,13 @@ for kmer_size in [14, 11, 16, 10, 9, 13, 15, 12, 8]:
         # Real set
         name = "realistic_bv_k" + str(kmer_size) + "_eps"+ str(eps)
         output = str(kmer_size) + "mer/"
-        datasets = ["samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta", 
-                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta", 
-                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta", 
-                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta", 
-                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta", 
-                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta", 
-                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta", 
-                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta", 
-                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta", 
-                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
-                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
-                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
-                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
-                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
-                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
-                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
-                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+        datasets = [
+            "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/0.fasta",
+            "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/1.fasta",
+            "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/2.fasta",
+            "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/3.fasta",
             ]
-        labels = ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17"]
+        labels = ["S1", "S2", "S3", "S4"]
         commandLineParams = ["--iso-bitvec --iso-kmer-size " + str(kmer_size) + " --dbscan-eps " + str(eps) + " --dbscan-mp 3"]
         
         run = makeRun(name, output, datasets, labels, commandLineParams)

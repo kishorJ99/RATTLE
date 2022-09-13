@@ -1,0 +1,63 @@
+{
+    "multipleOutputLoc": false,
+    "output": "output/",
+    "runs": [
+        {
+            "name": "realistic",
+            "output": "",
+            "datasets": [
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/0.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/1.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/2.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/3.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+            ],
+            "commandLineParams": [
+                "--iso-len-bv --iso-kmer-size 8 --dbscan-eps 12 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "original",
+            "output": "",
+            "datasets": [
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/0.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/1.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/2.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/3.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+            ],
+            "commandLineParams": [
+                "--iso"
+            ]
+        },
+        {
+            "name": "original_trimmed",
+            "output": "",
+            "datasets": [
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/0.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/1.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/2.fasta",
+                "samples/human_samples/cluster_split/32_gene:ENSG00000171867.18/3.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+            ],
+            "commandLineParams": [
+                "--iso --iso-trim"
+            ]
+        }
+    ]
+}

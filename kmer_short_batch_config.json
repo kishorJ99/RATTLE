@@ -1,0 +1,2406 @@
+{
+    "multipleOutputLoc": true,
+    "output": "output/kmerTune/",
+    "runs": [
+        {
+            "name": "simple_bv_k5_eps12",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 12 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps12",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 12 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps8",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 8 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps8",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 8 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps15",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 15 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps15",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 15 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps2",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps2",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps17",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 17 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps17",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 17 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps4",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 4 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps4",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 4 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps1",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 1 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps1",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 1 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps0.2",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 0.2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps0.2",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 0.2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps3",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 3 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps3",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 3 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps5",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 5 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps5",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 5 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps10",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 10 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps10",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 10 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps19",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 19 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps19",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 19 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps6",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 6 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps6",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 6 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps7",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 7 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps7",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 7 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps9",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 9 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps9",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 9 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps11",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 11 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps11",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 11 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps13",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 13 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps13",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 13 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps14",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 14 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps14",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 14 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps16",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 16 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps16",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 16 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k5_eps18",
+            "output": "5mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 18 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k5_eps18",
+            "output": "5mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 5 --dbscan-eps 18 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps12",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 12 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps12",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 12 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps8",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 8 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps8",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 8 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps15",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 15 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps15",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 15 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps2",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps2",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps17",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 17 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps17",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 17 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps4",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 4 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps4",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 4 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps1",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 1 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps1",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 1 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps0.2",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 0.2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps0.2",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 0.2 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps3",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 3 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps3",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 3 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps5",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 5 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps5",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 5 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps10",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 10 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps10",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 10 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps19",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 19 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps19",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 19 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps6",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 6 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps6",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 6 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps7",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 7 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps7",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 7 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps9",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 9 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps9",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 9 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps11",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 11 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps11",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 11 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps13",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 13 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps13",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 13 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps14",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 14 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps14",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 14 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps16",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 16 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps16",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 16 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "simple_bv_k4_eps18",
+            "output": "4mer/",
+            "datasets": [
+                "samples/sample1/50.fasta",
+                "samples/sample1/25.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 18 --dbscan-mp 3"
+            ]
+        },
+        {
+            "name": "realistic_bv_k4_eps18",
+            "output": "4mer/",
+            "datasets": [
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/0.fasta",
+                "samples/human_samples/cluster_split/468_gene:ENSG00000101335.10/1.fasta",
+                "samples/human_samples/cluster_split/317_gene:ENSG00000124172.10/0.fasta",
+                "samples/human_samples/cluster_split/274_gene:ENSG00000171858.18/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/0.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/1.fasta",
+                "samples/human_samples/cluster_split/269_gene:ENSG00000101210.13/2.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/0.fasta",
+                "samples/human_samples/cluster_split/253_gene:ENSG00000125868.16/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/0.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/1.fasta",
+                "samples/human_samples/cluster_split/125_gene:ENSG00000101439.9/2.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/0.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/1.fasta",
+                "samples/human_samples/cluster_split/121_gene:ENSG00000101182.15/2.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/0.fasta",
+                "samples/human_samples/cluster_split/107_gene:ENSG00000198959.12/1.fasta"
+            ],
+            "labels": [
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "S9",
+                "S10",
+                "S11",
+                "S12",
+                "S13",
+                "S14",
+                "S15",
+                "S16",
+                "S17"
+            ],
+            "commandLineParams": [
+                "--iso-bitvec --iso-kmer-size 4 --dbscan-eps 18 --dbscan-mp 3"
+            ]
+        }
+    ]
+}

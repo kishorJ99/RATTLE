@@ -12,7 +12,7 @@ rcParams.update({'figure.autolayout': True})
 # from subprocess import PIPE, run
 
 # Config
-configf = open('kmer_batch_config.json')
+configf = open('bvlenRun.json')
 config = json.load(configf)
 
 # Output
@@ -118,7 +118,7 @@ for i in config['runs']:
     params = i['commandLineParams']
 
 
-    resClusterCommand = './rattle cluster -i ' + ','.join(inputFiles) + ' -l ' + ','.join(labels) + ' -t 24 -o ' + outputLocationForRun + ' --rna ' + ' '.join(params)
+    resClusterCommand = './rattle cluster -i ' + ','.join(inputFiles) + ' -l ' + ','.join(labels) + ' -t 24 -o ' + outputLocationForRun + ' ' + ' '.join(params)
     out(resClusterCommand)
 
     resClusterSummaryCommand = './rattle cluster_summary -i ' + ','.join(inputFiles) + ' -l ' + ','.join(labels) + ' -c ./' + outputLocationForRun + 'clusters.out > ./' + outputLocationForRun + 'cluster_summary.tsv'

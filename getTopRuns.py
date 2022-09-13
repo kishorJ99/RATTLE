@@ -2,8 +2,8 @@ import csv
 import os
 from operator import itemgetter
 
-input = "output/kmerTune"
-output ="output/kmerTune/bestResults.csv"
+input = "output/kmerTune_2"
+output ="output/kmerTune_2/bestResults.csv"
 
 directorys = [x[0] for x in os.walk(input) if x[0].split('/')[-1] == 'graphs']
 

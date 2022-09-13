@@ -1,7 +1,23 @@
 #include <algorithm>
+#include <iostream>
 
 #include "utils.hpp"
 #include "kmer.hpp"
+#include <math.h> 
+
+kmer_bv extract_kmers_method_2(int kmer_size, std::string read) {
+
+    kmer_bv bv; 
+
+     for (int k = 0; k < read.length() - std::min(MAX_K, kmer_size); ++k) {
+        
+        auto hash = hash_kmer(read.substr(k, std::min(MAX_K, kmer_size)));
+        bv.set(hash);
+
+     }
+
+    return bv;
+}
 
 read_kmers_t extract_kmers_from_read(std::string read, int kmer_size, bool both_strands) {
     std::string rev_read = reverse_complement(read);
@@ -27,6 +43,7 @@ read_kmers_t extract_kmers_from_read(std::string read, int kmer_size, bool both_
 
         if (k < read.length() - KMER_BV_SIZE) {
             auto hash = hash_kmer(read.substr(k, KMER_BV_SIZE));
+            // std::cerr << "K : " << read.substr(k, KMER_BV_SIZE) << " Hash : " << hash << std::endl;
             read_bv_kmers.set(hash);
             
             if (both_strands) {

@@ -15,6 +15,9 @@ const int KMER_BV_SIZE = 6;
 const int BV_SIZE = 4<<(2*(KMER_BV_SIZE-1));
 typedef std::bitset<BV_SIZE> kmer_bv_t;
 
+const int MAX_K = 1048576; // 4^10
+typedef std::bitset<MAX_K> kmer_bv;
+
 struct read_kmers_t {
     std::vector<kmer_t> list_forward;
     std::vector<kmer_t> list_reverse;
@@ -42,5 +45,5 @@ inline uint32_t hash_kmer(std::string km) {
 read_kmers_t extract_kmers_from_read(std::string read, int kmer_size, bool both_strands);
 read_kmers_t extract_minimizers_from_read(std::string read, int kmer_size, int window_size, bool both_strands);
 std::vector<kmer_match_t> get_common_kmers(const std::vector<kmer_t> &k1, const std::vector<kmer_t> &k2);
-
+kmer_bv extract_kmers_method_2(int kmer_size, std::string read);
 #endif

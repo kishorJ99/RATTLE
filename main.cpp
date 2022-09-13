@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <queue>
 #include <unistd.h>
+#include <cmath>
 
 read_set_t read_multiple_inputs(std::vector<std::string> input_files, std::vector<std::string> label_files, bool raw, int lower_len, int upper_len) {
         
@@ -76,6 +77,11 @@ std::vector<std::string> splitString(std::string str, char delimiter) {
     return internal;
 }
 
+struct vec1s {
+    std::string data[1];
+    std::string sample;
+    std::string operator[](int idx) const { return data[idx]; }
+};
 struct vec1f {
     float data[1];
     float operator[](int idx) const { return data[idx]; }
@@ -86,6 +92,52 @@ struct vec4096f {
     float operator[](int idx) const { return data[idx]; }
 };
 
+
+float getDistanceFunction(vec1s p1, vec1s p2, bool is_rna) {
+
+    // Trim reads
+    std::string p1Trimmed;
+    std::string p2Trimmed;
+
+    if (p1[0].size() > p2[0].size()) {
+        p1Trimmed = p1[0].substr(p1[0].size() - p2[0].size(), p2[0].size());
+        p2Trimmed = p2[0];
+    } else {
+        p1Trimmed = p1[0];
+        p2Trimmed = p2[0].substr(p2[0].size() - p1[0].size(), p1[0].size());
+    }
+
+    // Choose Optomal Values.
+    int kmerSize = ceil((log(p1Trimmed.size()) / log(4))) ;
+    float errorRate = 0.05;
+    float radius = ceil(errorRate * p1Trimmed.size() * kmerSize) ;
+
+
+
+    // Generate Kmers
+    kmer_bv k1 = extract_kmers_method_2(kmerSize, p1Trimmed);
+    kmer_bv k2 = extract_kmers_method_2(kmerSize, p2Trimmed);
+    
+    float distance = static_cast<float>((k1 ^ k2).count()) / static_cast<float>((k1 | k2).count());
+
+    // float test = 0.54320;
+
+    std::cerr << distance << " Top : " <<  (k1 ^ k2).count() << " Bottom : " << ((k1 | k2).count()) << std::endl;
+
+    std::ofstream outfile;
+    outfile.open("Distance Matrix.csv", std::ios_base::app);
+
+    outfile << p1.sample << ", " << p2.sample <<  ", " << radius << ", " << kmerSize << ", " << distance << ", " << p1Trimmed.size() << ", \n";
+
+    outfile.close();
+
+    if (p1.sample == p2.sample) {
+        std::cerr << "K1 : " << p1.sample << " K2 : " << p2.sample <<  " Radius : " << radius << " Kmer Size : " << kmerSize << " Distance : " << distance << " Read Length : " << p1Trimmed.size() << std::endl;
+    }
+    // std::cerr << "K1 : " << k1BV << std::endl;
+    // std::cerr << "K2 : " << k2BV << std::endl;
+    return distance;
+}
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
@@ -149,7 +201,9 @@ int main(int argc, char *argv[]) {
             {"dbscan_min_points", {"--dbscan-mp"},
             "Use this to pass in DBscan parameters 'min points'", 1},
             {"dbscan_eps", {"--dbscan-eps"},
-            "Use this to pass in DBscan parameter 'Eps'", 1}
+            "Use this to pass in DBscan parameter 'Eps'", 1},
+            {"iso_trim", {"--iso-trim"},
+            "Use this to choose trimming reads before creating bv", 0}
         }};
 
         argagg::parser_results args;
@@ -227,12 +281,12 @@ int main(int argc, char *argv[]) {
 
         std::cerr << "Done" << std::endl;
 
-        auto gene_clusters = cluster_reads(reads, kmer_size, t_s, t_v, bv_threshold, bv_min_threshold, bv_falloff, min_reads_cluster, false, repr_percentile, is_rna, verbose, n_threads);
+        auto gene_clusters = cluster_reads(reads, kmer_size, t_s, t_v, bv_threshold, bv_min_threshold, bv_falloff, min_reads_cluster, false, repr_percentile, is_rna, verbose, n_threads, false);
         std::ofstream out_file(args["output"].as<std::string>(".") + "/clusters.out", std::ofstream::binary);
 
         std::cerr << "Gene clustering done" << std::endl;
         std::cerr << gene_clusters.size() << " gene clusters found" << std::endl;
-        if (!args["iso"] && !args["iso_freq"] && !args["iso_bv"]) {
+        if (!args["iso"] && !args["iso_freq"] && !args["iso_bv"] && !args["iso_len_bv"]) {
             hps::to_stream(gene_clusters, out_file);
             out_file.close();
             return EXIT_SUCCESS;
@@ -259,8 +313,10 @@ int main(int argc, char *argv[]) {
                     gene_reads.push_back(reads[cs.seq_id]);
                 }
 
+                bool iso_trim = args['iso_trim'];
+
                 // cluster gene reads & save new iso clusters
-                auto iso_clusters_tmp = cluster_reads(gene_reads, iso_kmer_size, iso_t_s, iso_t_v, bv_threshold, bv_min_threshold, bv_falloff, min_reads_cluster, false, repr_percentile, is_rna, false, n_threads);
+                auto iso_clusters_tmp = cluster_reads(gene_reads, iso_kmer_size, iso_t_s, iso_t_v, bv_threshold, bv_min_threshold, bv_falloff, min_reads_cluster, false, repr_percentile, is_rna, false, n_threads, iso_trim);
                 for (auto &ic : iso_clusters_tmp) {
                     cluster_t iso_cluster;
                     iso_cluster.main_seq = cseq_t{c.seqs[ic.main_seq.seq_id].seq_id, ic.main_seq.rev};
@@ -360,7 +416,7 @@ int main(int argc, char *argv[]) {
                         fileLine += std::to_string(bv[i]) + ",";
                     }
                     fileLine += "\n";
-
+ 
                     file << fileLine;
                     points.push_back(vect);
                 }
@@ -374,7 +430,7 @@ int main(int argc, char *argv[]) {
                 auto noise = dbscan.Noise;
                 auto clusters = dbscan.Clusters;
                 
-                // std::cerr << clusters.size() << std::endl;
+                // std::cerr << "Cluster Size : " <<clusters.size() << std::endl;
 
                 // convert clusters to iso clusters
                 int j = 0;
@@ -392,8 +448,59 @@ int main(int argc, char *argv[]) {
                 ++j;
                 ++i;
             }
+        } else if (args["iso_len_bv"]) {
+            std::cerr << "Mode length bitvec" << std::endl;
+            std::cerr << "eps : " << db_scan_eps << " mp : " << db_scan_mp << " k : " << iso_kmer_size << std::endl;
+
+            int i=0;
+            for (auto &c : gene_clusters) {
+
+                // input vector
+                std::vector<vec1s> points; 
+
+                for (auto  &cs : c.seqs) {
+                    vec1s vect;
+
+                    vect.data[0] = reads[cs.seq_id].seq;
+                    vect.sample = reads[cs.seq_id].header.substr(reads[cs.seq_id].header.find_last_of(".")) + ":" + std::to_string(cs.seq_id);
+
+                    points.push_back(vect);
+                }
+
+                std::function<float(vec1s p1, vec1s p2)> distanceFunction = is_rna ? [](vec1s p1, vec1s p2) {return getDistanceFunction(p1, p2, true);} : [](vec1s p1, vec1s p2) {return getDistanceFunction(p1, p2, false);};
+                
+                auto dbscan = DBSCAN<vec1s, float>();
+                dbscan.Run(&points, 1, 10, 2, distanceFunction);
+
+                auto noise = dbscan.Noise;
+                auto clusters = dbscan.Clusters;
+                
+                std::cerr << "No of Clusters : " <<clusters.size() << " Cluster Size : " << clusters[0].size() << std::endl;
+
+                // if (clusters.size() > 1) {
+                //     // convert clusters to iso clusters
+                //     int j = 0;
+                    for (auto &cluster : clusters) {
+                        cluster_t iso_cluster;
+
+                        iso_cluster.main_seq = cseq_t{c.seqs[cluster[0]].seq_id, c.seqs[cluster[0]].rev};
+
+                        for (auto &cs : cluster) {
+                            iso_cluster.seqs.push_back(cseq_t{c.seqs[cs].seq_id, c.seqs[cs].rev});
+                        }
+
+                        iso_clusters.push_back(iso_cluster);
+                    }
+                //     ++j;
+                //     ++i;
+                // } else {
+                    // iso_clusters.push_back(c);
+                // }
+            }
+
         }
-        
+
+
         std::cerr << "Isoform clustering done" << std::endl;
         std::cerr << iso_clusters.size() << " isoform clusters found" << std::endl;
         hps::to_stream(iso_clusters, out_file);
@@ -736,7 +843,7 @@ int main(int argc, char *argv[]) {
         bool verbose = args["verbose"];
 
         std::cerr << "Clustering consensus sequences..." << std::endl;
-        auto clusters = cluster_reads(reads, 6, 0.5, 25, 0.4, 0.4, 0.05, 0, false, 0.15, is_rna, verbose, n_threads);
+        auto clusters = cluster_reads(reads, 6, 0.5, 25, 0.4, 0.4, 0.05, 0, false, 0.15, is_rna, verbose, n_threads, false);
         auto correction = correct_reads(clusters, reads, 0.3, 0.3, 30.0, 200, 0, n_threads, verbose);
 
         int cid = 0;
